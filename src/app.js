@@ -8,15 +8,25 @@ const generarCartas = () => {
 
   if (randomPalos === "♥" || randomPalos === "♦") {
     document.querySelector(".card").classList.add("cardRed")
-  }
+  } else {document.querySelector(".card").classList.remove("cardRed")}
 
   document.querySelector(".top-suit").innerHTML = randomPalos
   document.querySelector(".number").innerHTML = randomNum
   document.querySelector(".bottom-suit").innerHTML = randomPalos
 }
 
+function cartaNueva () {
+  let nuevaCarta = document.createElement("button")
+  nuevaCarta.classList.add = "btn btn-outline-danger"
+  nuevaCarta.innerHTML = "Pulsa para nueva carta"
+  let div = document.querySelector("#divBoton")
+  div.appendChild(nuevaCarta)
+  nuevaCarta.addEventListener("click", generarCartas)
+}
+
 window.onload = function () {
   generarCartas()
+  cartaNueva()
 };
 
 
